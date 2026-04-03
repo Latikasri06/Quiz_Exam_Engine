@@ -1,0 +1,9 @@
+export const formatTime = (seconds) => {
+  const minutes = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+  return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+};
+
+export const shuffleArray = (array) => {
+  return [...array].sort(() => Math.random() - 0.5);
+};
