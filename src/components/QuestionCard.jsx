@@ -20,8 +20,8 @@ const QuestionCard = ({ question, currentIndex, currentAnswer, onAnswerSelect })
               key={index}
               className={`flex items-center gap-4 p-4 rounded-lg cursor-pointer border transition-all duration-200 ${
                 isSelected
-                  ? 'border-blue-500 bg-blue-50/50 shadow-sm ring-1 ring-blue-500'
-                  : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50'
+                  ? 'border-blue-500 bg-blue-50/50 shadow-sm ring-1 ring-blue-500 scale-[1.02]'
+                  : 'border-slate-200 hover:border-blue-300 hover:bg-slate-50 active:scale-[0.98]'
               }`}
             >
               <div

@@ -57,7 +57,14 @@ const QuizPage = () => {
   const handlePrev = () => setQuestionIndex(currentQuestionIndex - 1);
 
   const handleSubmit = () => {
-    if (window.confirm('Are you sure you want to submit the quiz?')) {
+    const unansweredCount = questions.length - Object.keys(answers).length;
+    let confirmMessage = 'Are you sure you want to submit the quiz?';
+    
+    if (unansweredCount > 0) {
+      confirmMessage = `You have ${unansweredCount} unanswered questions. Are you sure you want to submit?`;
+    }
+
+    if (window.confirm(confirmMessage)) {
       dispatch({ type: 'SUBMIT_QUIZ' });
       navigate('/result', { replace: true });
     }

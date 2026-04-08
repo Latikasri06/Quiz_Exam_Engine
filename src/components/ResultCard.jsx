@@ -7,15 +7,21 @@ const ResultCard = ({ results, totalQuestions, onRestart }) => {
   // Determine performance color and message
   let performanceColor = "text-emerald-500";
   let performanceBg = "bg-emerald-50";
+  let statusBadge = "bg-emerald-100 text-emerald-700";
+  let statusText = "PASSED";
   let message = "Excellent Work!";
   
   if (percentage < 40) {
     performanceColor = "text-red-500";
     performanceBg = "bg-red-50";
+    statusBadge = "bg-red-100 text-red-700";
+    statusText = "FAILED";
     message = "Needs Improvement";
   } else if (percentage < 70) {
     performanceColor = "text-amber-500";
     performanceBg = "bg-amber-50";
+    statusBadge = "bg-amber-100 text-amber-700";
+    statusText = "PASSED";
     message = "Good Attempt!";
   }
 
@@ -25,6 +31,11 @@ const ResultCard = ({ results, totalQuestions, onRestart }) => {
         <div className="p-8 text-center border-b border-slate-100 bg-slate-50/50">
           <div className={`inline-flex items-center justify-center w-20 h-20 rounded-full ${performanceBg} ${performanceColor} mb-4`}>
             {percentage >= 70 ? <Trophy className="w-10 h-10" /> : <Target className="w-10 h-10" />}
+          </div>
+          <div className="mb-2">
+            <span className={`px-4 py-1.5 rounded-full text-xs font-bold tracking-widest ${statusBadge}`}>
+              {statusText}
+            </span>
           </div>
           <h2 className="text-3xl font-bold text-slate-800 mb-2">Quiz Completed!</h2>
           <p className={`text-lg font-medium ${performanceColor}`}>{message}</p>
